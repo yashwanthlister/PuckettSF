@@ -101,36 +101,39 @@ function regLinkClickHandlers() {
     
     $j('#link_fetch_sfdc_contacts').click(function() {
                                           logToConsole("link_fetch_sfdc_contacts clicked");
-                                          forcetkClient.query("SELECT Name FROM Contact", onSuccessSfdcContacts, onErrorSfdc);
+                                          $j("#tableJobSites-tbody").empty();
+                                          forcetkClient.apexrest("/GetContactsSvc", "GET",null,null,accntSuccessCallback,errorCallback);
                                           });
     
     $j('#link_fetch_sfdc_accounts').click(function() {
                                           logToConsole("link_fetch_sfdc_accounts clicked == ");
-                                          //window.location.href='accounts.html';
-                                         
-                                         //$j('#link_fetch_sfdc_accounts').class = 'glyphicons group active';
-                                          //forcetkClient.query("SELECT Name FROM Account", onSuccessSfdcAccounts, onErrorSfdc);
-                                          //path, method, payload, headerParams, callback, error
+                                          $j("#tableJobSites-tbody").empty();
+                                           forcetkClient.apexrest("/GetAccountsSvc", "GET",null,null,accntSuccessCallback,errorCallback);
+                                          });
+    $j('#link_fetch_sfdc_JobSites').click(function() {
+                                          logToConsole("link_fetch_sfdc_JobSites clicked == ");
+                                          $j("#tableJobSites-tbody").empty();
                                           forcetkClient.apexrest("/GetJobSitesSvc", "GET",null,null,accntSuccessCallback,errorCallback);
                                           });
+    $j('#link_fetch_sfdc_Trades').click(function() {
+                                          logToConsole("link_fetch_sfdc_Trades clicked == ");
+                                          $j("#tableJobSites-tbody").empty();
+                                          forcetkClient.apexrest("/GetTradesSvc", "GET",null,null,accntSuccessCallback,errorCallback);
+                                          });
+   
     function accntSuccessCallback(data){
-//        logToConsole('called' +data[0].Name);
 
         for(var i=0;i<data.length;i++){
             logToConsole('Accounts: ' +data[i].Name);
         }
         
-//        var parenttBody = $("tableJobSites-tbody");//.innerHTML += result[eachResult].Name;
 
         logToConsole('data ;;;' + data);
         for (var key in data)
         {
-         //   alert('1');
             if (data.hasOwnProperty(key))
             {
-             //   alert('2');
                 logToConsole(data[key].Name);
-                //var link=$(result[key].Contractor__c);
                 var linkTd=jQuery('<td></td>');
                 logToConsole(linkTd);
                 var jobsitelink = jQuery('<a href = /'+data[key].Id+'>'+data[key].Name+'</a>');
@@ -143,7 +146,6 @@ function regLinkClickHandlers() {
                 tabTr.append('<td>'+data[key].Stage__c+'</td>');
                 // here you have access to
                 jQuery('#tableJobSites > tbody:last').append(tabTr);
-                //alert('3');
             }
         }
 
