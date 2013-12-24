@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Puckett Rents - NEXMachine</title>
+
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Extended -->
+    <link href="bootstrap/extend/jasny-bootstrap/css/jasny-bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/extend/jasny-bootstrap/css/jasny-bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="bootstrap/extend/bootstrap-wysihtml5/css/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet">
+
+    <!-- JQueryUI v1.9.2 -->
+    <link rel="stylesheet" href="theme/scripts/jquery-ui-1.9.2.custom/css/smoothness/jquery-ui-1.9.2.custom.min.css" />
+
+    <!-- Glyphicons -->
+    <link rel="stylesheet" href="theme/css/glyphicons.css" />
+
+    <!-- Bootstrap Extended -->
+    <link rel="stylesheet" href="bootstrap/extend/bootstrap-select/bootstrap-select.css" />
+    <link rel="stylesheet" href="bootstrap/extend/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" />
+
+    <!-- Uniform -->
+    <link rel="stylesheet" media="screen" href="theme/scripts/pixelmatrix-uniform/css/uniform.default.css" />
+
+    <!-- DataTables -->
+    <link rel="stylesheet" media="screen" href="theme/scripts/DataTables/media/css/DT_bootstrap.css" />
+
+    <!-- JQuery v1.8.2 -->
+    <script src="theme/scripts/jquery-1.8.2.min.js"></script>
+
+    <!-- Notyfy -->
+    <script type="text/javascript" src="theme/scripts/notyfy/jquery.notyfy.js"></script>
+    <link rel="stylesheet" href="theme/scripts/notyfy/jquery.notyfy.css" />
+    <link rel="stylesheet" href="theme/scripts/notyfy/themes/default.css" />
+
+    <!-- Gritter -->
+    <link rel="stylesheet" href="theme/scripts/Gritter/css/jquery.gritter.css" />
+    <script type="text/javascript" src="theme/scripts/Gritter/js/jquery.gritter.min.js"></script>
+
+    <!-- Calendar -->
+    <link rel="stylesheet" media="screen" href="theme/scripts/fullcalendar/fullcalendar/fullcalendar.css" />
+
+    <!-- Theme -->
+    <link rel="stylesheet" href="theme/css/style.min.css?1362656663" />
+    <link rel="stylesheet" href="theme/skins/css/rental_red.css" />
+
+    <style>
+    #attached-events {
+        border: 1px solid #fff;
+    }
+    #attached-events.eventHover {
+        border: 1px solid #333;
+    }
+    #attached-events li {
+        border-color: #ddd;
+        background: #f6f6f6;
+        color: #666;
+    }
+    #sampleTable {
+        cursor: default;
+    }
+    #sampleTable td.ui-draggable-dragging {
+        background: #fff;
+        border: 1px solid #999;
+    }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Start Content -->
+    <div class="container-fluid">
+
+        <div class="navbar main" >
+            <a href="index.html?lang=en" class="appbrand">
+                <span>Puckett Rents</span>
+            </a>
+
+            <ul class="topnav pull-right">
+                <li class="visible-desktop">
+                    <ul class="notif">
+                        <li><a href="" class="glyphicons conversation"><i></i></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="account">
+                    <a data-toggle="dropdown" href="#" class="glyphicons logout lock">
+                        <span class="hidden-phone text">Dan Kauppi</span><i></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="#" class="glyphicons cogwheel">Settings<i></i></a>
+                        </li>
+                        <li class="highlight profile">
+                            <span>
+                                <span class="heading">Profile <a href="#" class="pull-right">edit</a>
+                                </span>
+                                <span class="img"></span>
+                                <span class="details">
+                                    <a href="#">Dan Kauppi</a>
+                                </span>
+                                <span class="clearfix"></span>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <a class="btn btn-default btn-small pull-right" style="padding: 2px 10px; background: #fff;" href="login.html?lang=en">Sign Out</a>
+                            </span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="wrapper">
+            <div id="menu" >
+                <span class="profile">
+                    <a class="img" href="my_account.html?lang=en">
+                        <img src="img/icon.png" />
+                    </a>
+                    <span>
+                        <strong>Dan Kauppi</strong>
+                        <a href="#">edit account</a>
+                    </span>
+                </span>
+                <div class="clearfix">&nbsp;</div>
+                <ul>
+                    <li class="glyphicons home"><a href="index.html"><i></i><span>Home</span></a>
+                    </li>
+                    <li class="glyphicons calendar active"><a href="calendar.html"><i></i><span>Calendar</span></a>
+                    </li>
+                    <li class="glyphicons google_maps"><a href="job-sites.html"><i></i><span>Job Sites</span></a>
+                    </li>
+                    <li class="glyphicons group"><a href="accounts.html"><i></i><span>Accounts</span></a>
+                    </li>
+                    <li class="glyphicons list"><a href="inventory.html"><i></i><span>Inventory</span></a>
+                    </li>
+                    <li class="hasSubmenu glyphicons conversation">
+                        <a data-toggle="collapse" href="#chatter_items"><i></i><span>Chatter</span></a>
+                        <ul class="collapse in" id="chatter_items">
+                            <li class=" active"><a href="#"><span>Chatter Update</span></a></li>
+                            <li class=" active"><a href="#"><span>Chatter Update</span></a></li>
+                            <li class=" active"><a href="#"><span>Chatter Update</span></a></li>
+                            <li class=" active"><a href="#"><span>Chatter Update</span></a></li>
+                            <li class=" active"><a href="#"><span>Chatter Update</span></a></li>
+                        </ul>
+                        <span class="count">5</span>
+                    </li>
+                </ul>
+                <div class="clearfix" style="clear: both">&nbsp;</div>
+                <p class="text-center">
+                    <button class="btn btn-primary btn-icon glyphicons download" style="width: 90%"><i></i>Upload a Photo</button>
+                </p>
+                <p class="text-center">
+                    <button class="btn btn-primary btn-icon glyphicons download" style="width: 90%"><i></i>Check In</button>
+                </p>
+            </div>
+            <div id="content" style="padding-top: 40px;">
+
+                <div class="innerLR">
+
+                    <div class="row-fluid">
+
+                        <form class="form-horizontal" style="margin-bottom: 0;" id="validateSubmitForm" method="get" autocomplete="off">
+
+                            <div class="span8">
+                                <div class="widget">
+                                    <div class="widget-head">
+                                        <h4 class="heading">Edit Event</h4>
+                                    </div>
+                                    <div class="widget-body">
+
+                                        <div class="row-fluid">
+
+                                            <div class="span7">
+
+                                                <div class="control-group">
+                                                    <label class="control-label" for="event_title">Event Title</label>
+                                                    <div class="controls">
+                                                        <input class="span12" id="event_title" name="event_title" type="text" value="My Event Title" />
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="location">Location</label>
+                                                    <div class="controls">
+                                                        <input class="span12" id="location" name="location" type="text" />
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="time_start">Time Start</label>
+                                                    <div class="controls">
+                                                        <input class="span12" id="time_start" name="lastname" type="time" />
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="time_end">Time End</label>
+                                                    <div class="controls">
+                                                        <input class="span12" id="time_end" name="username" type="time" />
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="end">Date Start</label>
+                                                    <div class="controls">
+                                                        <input class="span12" id="date_start" name="date_start" type="date" />
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="end">Date End</label>
+                                                    <div class="controls">
+                                                        <input class="span12" id="date_end" name="date_end" type="date" />
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="all_day">All Day Event</label>
+                                                    <div class="controls">
+                                                        <input type="checkbox" class="checkbox" id="all_day" name="all_day" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- end span6 -->
+
+                                            <div class="span5">
+                                                <div class="widget list">
+                                                    <div class="widget-head">
+                                                        <h4 class="heading">Attached Contacts</h4>
+                                                    </div>
+                                                    <div class="widget-body" id="attached-events">
+                                                        <ul class="unstyled">
+                                                            <li class="alert alert-info noitems">There are no contacts on this event.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end span6 -->
+
+                                        </div>
+                                        <!-- end row-fluid -->
+
+                                        <div class="clearfix" style="clear: both">&nbsp;</div>
+
+                                        <div class="row-fluid">
+                                            <div class="span12">
+                                                <div class="control-group">
+                                                    <label class="control-label" for="description">Description</label>
+                                                    <div class="controls">
+                                                        <textarea class="span12" id="description" name="description" rows="6" type="text"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr class="seperator" />
+
+                                        <div class="row-fluid">
+                                            <div class="span12">
+                                                <div class="form-actions">
+                                                    <button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok"><i></i>Save</button>
+                                                    <button type="button" class="btn btn-icon btn-default glyphicons circle_remove"><i></i>Cancel</button>
+                                                </div>
+                                            </div>
+                                            <!-- end span12 -->
+                                        </div>
+                                        <!-- end row-fluid -->
+
+                                    </div>
+                                    <!-- end widget-body -->
+                                </div>
+                                <!-- end widget -->
+
+                            </div>
+                            <!-- end span8 -->
+
+                        </form>
+
+                        <div class="span4 uniformjs">
+                            <div class="widget">
+                                <div class="widget-head">
+                                    <h4 class="heading">Contacts</h4>
+                                </div>
+                                <div class="widget-body">
+                                    <table id="sampleTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Contacts</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Gisela Abeyta</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sean Selander</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Alfredo Wenrich</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ammie Baptist</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Danette Luckett</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Roberto Denton</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Roselia Parkes</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Valda Belding</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Warren Lehmann</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Juliette Millsap</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kristal Salyards</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ruthanne Perreira</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lee Aliff</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Maxwell Voisine</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gertrud Duer</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Juan Cassidy</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Charlena Loughman</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gino Wortham</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Amado Herald</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jackson Verdugo</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end span -->
+
+                    </div>
+                    <!-- end row-fluid -->
+
+                </div>
+                <!-- end innerLR -->
+
+                <script type='text/javascript'>
+                $(document).ready(function() {
+                    /* ----------------------------------------------------------------- */
+                    $('#sampleTable td').each(function() {
+                        var eventObject = {
+                            title: $.trim($(this).text())
+                        };
+                        $(this).data('eventObject', eventObject);
+                        $(this).draggable({
+                            zIndex: 999,
+                            revert: true,
+                            revertDuration: 100,
+                            opacity: 0.9,
+                            start: function() {
+                                if (typeof mainYScroller != 'undefined') mainYScroller.disable();
+                            },
+                            stop: function() {
+                                if (typeof mainYScroller != 'undefined') mainYScroller.enable();
+                            }
+                        });
+                    });
+                    /* ----------------------------------------------------------------- */
+                    $('#attached-events').droppable({
+                        activeClass: 'eventHover',
+                        drop: function(event, ui) {
+                            $(this).find('ul').append('<li class="alert alert-info">' + ui.draggable.text() + '</li>');
+                            //$(this).find('li').not('li.noItems').fadeIn('fast');
+                            $( "this" ).find('li').effect('highlight', 500);
+                            var parent_length = $('#attached-events').find('li').length;
+                            if (parent_length > 1) {
+                                $('#attached-events li.noitems').fadeOut(300);
+                            } else {
+                                $('#attached-events li.noitems').fadeIn(300);
+                            }
+                        }
+                    });
+                    /* ----------------------------------------------------------------- */
+                    $('#sampleTable').dataTable({
+                        "bPaginate": true,
+                        "bLengthChange": false,
+                        "bFilter": true,
+                        "bSort": false,
+                        "bInfo": false,
+                        "bAutoWidth": true,
+                        "oLanguage": {
+                            "oPaginate": {
+                                "sNext": "",
+                                "sPrevious": ""
+                            }
+                        },
+                        "sDom": "<'row-fluid'<'span12'f>>t<'row-fluid'<'span12'p>>"
+                    });
+                    /* ----------------------------------------------------------------- */
+                }); // end document ready
+                </script>
+
+                <!-- End Content -->
+            </div>
+            <!-- End Wrapper -->
+        </div>
+
+    </div>
+
+   <!-- JQueryUI v1.9.2 -->
+    <script src="theme/scripts/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js"></script>
+
+    <!-- Calendar -->
+    <script src="theme/scripts/fullcalendar/fullcalendar/fullcalendar.js"></script>
+
+    <!-- Uniform -->
+    <script src="theme/scripts/pixelmatrix-uniform/jquery.uniform.min.js"></script>
+
+    <!-- DataTables -->
+    <script src="theme/scripts/DataTables/media/js/jquery.dataTables.min.js"></script>
+    <script src="theme/scripts/DataTables/media/js/DT_bootstrap.js"></script>
+
+    <!-- Bootstrap Script -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Extended -->
+    <script src="bootstrap/extend/bootstrap-select/bootstrap-select.js"></script>
+    <script src="bootstrap/extend/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js"></script>
+    <script src="bootstrap/extend/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js"></script>
+    <script src="bootstrap/extend/jasny-bootstrap/js/jasny-bootstrap.min.js" type="text/javascript"></script>
+    <script src="bootstrap/extend/jasny-bootstrap/js/bootstrap-fileupload.js" type="text/javascript"></script>
+    <script src="bootstrap/extend/bootbox.js" type="text/javascript"></script>
+    <script src="bootstrap/extend/bootstrap-wysihtml5/js/wysihtml5-0.3.0_rc2.min.js" type="text/javascript"></script>
+    <script src="bootstrap/extend/bootstrap-wysihtml5/js/bootstrap-wysihtml5-0.0.2.js" type="text/javascript"></script>
+
+    <!-- JQueryUI Touch Punch -->
+    <!-- small hack that enables the use of touch events on sites using the jQuery UI user interface library -->
+    <script src="theme/scripts/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- Custom Onload Script -->
+    <script src="theme/scripts/load.js"></script>
+
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+        app.initialize();
+    </script>
+
+</body>
+
+</html>

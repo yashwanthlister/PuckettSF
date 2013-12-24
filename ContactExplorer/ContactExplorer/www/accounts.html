@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Puckett Rents - NEXMachine</title>
+
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Extended -->
+    <link href="bootstrap/extend/jasny-bootstrap/css/jasny-bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/extend/jasny-bootstrap/css/jasny-bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="bootstrap/extend/bootstrap-wysihtml5/css/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet">
+
+    <!-- JQueryUI v1.9.2 -->
+    <link rel="stylesheet" href="theme/scripts/jquery-ui-1.9.2.custom/css/smoothness/jquery-ui-1.9.2.custom.min.css" />
+
+    <!-- Glyphicons -->
+    <link rel="stylesheet" href="theme/css/glyphicons.css" />
+
+    <!-- Bootstrap Extended -->
+    <link rel="stylesheet" href="bootstrap/extend/bootstrap-select/bootstrap-select.css" />
+    <link rel="stylesheet" href="bootstrap/extend/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" />
+
+    <!-- Uniform -->
+    <link rel="stylesheet" media="screen" href="theme/scripts/pixelmatrix-uniform/css/uniform.default.css" />
+
+    <!-- DataTables -->
+    <link rel="stylesheet" media="screen" href="theme/scripts/DataTables/media/css/DT_bootstrap.css" />
+
+    <!-- JQuery v1.8.2 -->
+    <script src="theme/scripts/jquery-1.8.2.min.js"></script>
+
+    <!-- Notyfy -->
+    <script type="text/javascript" src="theme/scripts/notyfy/jquery.notyfy.js"></script>
+    <link rel="stylesheet" href="theme/scripts/notyfy/jquery.notyfy.css" />
+    <link rel="stylesheet" href="theme/scripts/notyfy/themes/default.css" />
+
+    <!-- Gritter -->
+    <link rel="stylesheet" href="theme/scripts/Gritter/css/jquery.gritter.css" />
+    <script type="text/javascript" src="theme/scripts/Gritter/js/jquery.gritter.min.js"></script>
+
+    <script src="inline.js"></script>
+
+    <!-- Calendar -->
+    <link rel="stylesheet" media="screen" href="theme/scripts/fullcalendar/fullcalendar/fullcalendar.css" />
+
+    <!-- Theme -->
+    <link rel="stylesheet" href="theme/css/style.min.css?1362656663" />
+    <link rel="stylesheet" href="theme/skins/css/rental_red.css" />
+    
+    <!-- Include cordova. -->
+	<script src="cordova-2.3.0.js"></script>
+    
+    <!-- Include cordova plugins -->
+    <script src="cordova.force.js"></script>
+    
+    <!-- include forcetk.mobilesdk for REST transaction support -->
+    <script src="forcetk.mobilesdk.js"></script>
+    <script src="jqusmartsync.js"></script>
+    <script src="inline.js"></script>
+    
+
+</head>
+
+<body>
+
+    <!-- Start Content -->
+    <div class="container-fluid">
+
+        <div class="navbar main">
+            <a href="index.html?lang=en" class="appbrand">
+                <span>Puckett Rents</span>
+            </a>
+            <ul class="topnav pull-right">
+                <li class="visible-desktop">
+                    <ul class="notif">
+                        <li><a href="#" class="glyphicons conversation"><i></i></a></li>
+                    </ul>
+                </li>
+                <li class="account">
+                    <a data-toggle="dropdown" href="#" class="glyphicons logout lock">
+                        <span class="hidden-phone text">Dan Kauppi</span><i></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="#" class="glyphicons cogwheel">Settings<i></i></a>
+                        </li>
+                        <li class="highlight profile">
+                            <span>
+                                <span class="heading">Profile <a href="#" class="pull-right">edit</a>
+                                </span>
+                                <span class="img"></span>
+                                <span class="details">
+                                    <a href="#">Dan Kauppi</a>
+                                </span>
+                                <span class="clearfix"></span>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <a class="btn btn-default btn-small pull-right" style="padding: 2px 10px; background: #fff;" href="login.html?lang=en">Sign Out</a>
+                            </span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="wrapper">
+            <div id="menu">
+                <span class="profile">
+                    <a class="img" href="my_account.html?lang=en">
+                        <img src="img/icon.png" />
+                    </a>
+                    <span>
+                        <strong>Dan Kauppi</strong>
+                        <a href="#">edit account</a>
+                    </span>
+                </span>
+                <div class="clearfix">&nbsp;</div>
+                <ul>
+                    <li class="glyphicons home"><a href="index.html"><i></i><span>Home</span></a>
+                    </li>
+                    <li class="glyphicons calendar"><a href="calendar.html"><i></i><span>Calendar</span></a>
+                    </li>
+                    <li class="glyphicons google_maps"><a href="job-sites.html"><i></i><span>Job Sites</span></a>
+                    </li>
+                    <li id="link_fetch_sfdc_accounts" class="glyphicons group active"><i></i><span>Accounts</span></a>
+                    </li>
+                    <li class="glyphicons list"><a href="inventory.html"><i></i><span>Inventory</span></a>
+                    </li>
+                    <li class="hasSubmenu glyphicons conversation">
+                        <a data-toggle="collapse" href="#chatter_items"><i></i><span>Chatter</span></a>
+                        <ul class="collapse in" id="chatter_items">
+                            <li class=" active"><a href="#"><span>Chatter Update</span></a></li>
+                            <li class=" active"><a href="#"><span>Chatter Update</span></a></li>
+                            <li class=" active"><a href="#"><span>Chatter Update</span></a></li>
+                            <li class=" active"><a href="#"><span>Chatter Update</span></a></li>
+                            <li class=" active"><a href="#"><span>Chatter Update</span></a></li>
+                        </ul>
+                        <span class="count">5</span>
+                    </li>
+
+                </ul>
+                <div class="clearfix" style="clear: both"></div>
+            </div>
+            <div id="content">
+
+                <div class="innerLR" style="padding-top: 40px;">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="widget">
+                                <div class="widget-head">
+                                    <h4 class="heading">Accounts</h4>
+                                </div>
+                                <div class="widget-body">
+                                    <table id="tableJobSites" class="dynamicTable table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Site</th>
+                                                <th>Zone</th>
+                                                <th>Active Rents</th>
+                                                <th>Trades</th>
+                                                <th>Stage</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody >
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div><!-- end span -->
+                    </div><!-- end row -->
+
+                </div>
+            </div> 
+
+                <!-- End Content -->
+            </div>
+            <!-- End Wrapper -->
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        
+        $(document).ready(function(){
+                          
+        
+        $(document).Onload(function() {
+                       alert('XXXX');
+                           regLinkClickHandlers();
+                          logToConsole("link_fetch_sfdc_accounts clicked in accounts.html ");
+                           //forcetkClient.query("SELECT Name FROM Account", onSuccessSfdcAccounts, onErrorSfdc);
+                           //path, method, payload, headerParams, callback, error
+                           forcetkClient.apexrest("/GetJobSitesSvc", "GET",null,null,accntSuccessCallback,errorCallback);
+                          });
+                          function accntSuccessCallback(data){
+                          logToConsole('callled' +data[0].Name);
+                          }
+                          
+                          function errorCallback(){
+                          logToConsole('errror callled');
+                          }
+                          
+
+                          });
+        </script>
+    <!-- JQueryUI v1.9.2 -->
+    <script src="theme/scripts/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js"></script>
+
+    <!-- Calendar -->
+    <script src="theme/scripts/fullcalendar/fullcalendar/fullcalendar.js"></script>
+
+    <!-- Uniform -->
+    <script src="theme/scripts/pixelmatrix-uniform/jquery.uniform.min.js"></script>
+
+    <!-- DataTables -->
+    <script src="theme/scripts/DataTables/media/js/jquery.dataTables.min.js"></script>
+    <script src="theme/scripts/DataTables/media/js/DT_bootstrap.js"></script>
+
+    <!-- Bootstrap Script -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Extended -->
+    <script src="bootstrap/extend/bootstrap-select/bootstrap-select.js"></script>
+    <script src="bootstrap/extend/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js"></script>
+    <script src="bootstrap/extend/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js"></script>
+    <script src="bootstrap/extend/jasny-bootstrap/js/jasny-bootstrap.min.js" type="text/javascript"></script>
+    <script src="bootstrap/extend/jasny-bootstrap/js/bootstrap-fileupload.js" type="text/javascript"></script>
+    <script src="bootstrap/extend/bootbox.js" type="text/javascript"></script>
+    <script src="bootstrap/extend/bootstrap-wysihtml5/js/wysihtml5-0.3.0_rc2.min.js" type="text/javascript"></script>
+    <script src="bootstrap/extend/bootstrap-wysihtml5/js/bootstrap-wysihtml5-0.0.2.js" type="text/javascript"></script>
+
+    <!-- JQueryUI Touch Punch -->
+    <!-- small hack that enables the use of touch events on sites using the jQuery UI user interface library -->
+    <script src="theme/scripts/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- Custom Onload Script -->
+    <script src="theme/scripts/load.js"></script>
+
+    <!-- <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="js/index.js"></script> -->
+    <script>
+       // app.initialize();
+    </script>
+
+</body>
+
+</html>
