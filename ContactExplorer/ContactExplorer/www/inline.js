@@ -113,7 +113,7 @@ function regLinkClickHandlers() {
     $j('#link_fetch_sfdc_JobSites').click(function() {
                                           logToConsole("link_fetch_sfdc_JobSites clicked == ");
                                           $j("#tableJobSites-tbody").empty();
-                                          forcetkClient.apexrest("/GetJobSitesSvc", "GET",null,null,accntSuccessCallback,errorCallback);
+                                          forcetkClient.apexrest("/GetJobSitesSvc", "GET",null,null,jobStSuccessCallback,errorCallback);
                                           });
     $j('#link_fetch_sfdc_Trades').click(function() {
                                           logToConsole("link_fetch_sfdc_Trades clicked == ");
@@ -121,12 +121,62 @@ function regLinkClickHandlers() {
                                           forcetkClient.apexrest("/GetTradesSvc", "GET",null,null,accntSuccessCallback,errorCallback);
                                           });
    
-    function accntSuccessCallback(data){
+    function jobStSuccessCallback(data){
 
+        for(var i=0;i<data.length;i++){
+            logToConsole('Contacts: ' +data[i].Name);
+        }
+        jQuery('#tableJobSites > thead').html('');
+        
+        var headTr=jQuery('<tr></tr>');
+       
+        headTr.append('<th>Contractor</th>');
+        headTr.append('<th>Contact</th>');
+        headTr.append('<th>Zone</th>');
+        headTr.append('<th>Role</th>');
+        headTr.append('<th>Status</th>');
+    jQuery('#tableJobSites > thead:last').append(headTr);
+
+        //logToConsole('data ;;;' + data);
+        for (var key in data)
+        {
+            if (data.hasOwnProperty(key))
+            {
+                logToConsole(data[key].Name);
+                var linkTd=jQuery('<td></td>');
+                logToConsole(linkTd);
+               // var jobsitelink = jQuery('<a href = /'+data[key].Id+'>'+data[key].Name+'</a>');
+               // linkTd.append(jobsitelink);
+                var tabTr=jQuery('<tr></tr>');
+                tabTr.append(linkTd);
+                tabTr.append('<td>'+data[key].Id+'</td>');
+                tabTr.append('<td></td>');
+                tabTr.append('<td>'+data[key].Zone__c+'</td>');
+                
+                tabTr.append('<td></td>');
+                tabTr.append('<td>'+data[key ].Stage__c+'</td>');
+                // here you have access to
+                jQuery('#tableJobSites > tbody:last').append(tabTr);
+            }
+        }
+
+        
+    }
+    
+    function accntSuccessCallback(data){
+        
         for(var i=0;i<data.length;i++){
             logToConsole('Accounts: ' +data[i].Name);
         }
+        jQuery('#tableJobSites > thead').html('');
+        var headTr=jQuery('<tr></tr>');
         
+        headTr.append('<th>Site</th>');
+        headTr.append('<th>Zone</th>');
+        headTr.append('<th>Active Rents</th>');
+        headTr.append('<th>Trades</th>');
+        headTr.append('<th>Stage</th>');
+        jQuery('#tableJobSites > thead:last').append(headTr);
 
         logToConsole('data ;;;' + data);
         for (var key in data)
@@ -141,14 +191,14 @@ function regLinkClickHandlers() {
                 var tabTr=jQuery('<tr></tr>');
                 tabTr.append(linkTd);
                 tabTr.append('<td>'+data[key].Zone__c+'</td>');
-                tabTr.append('<td>'+data[key].Active_Rents__c+'</td>');
-                tabTr.append('<td>'+data[key].Trades__c+'</td>');
-                tabTr.append('<td>'+data[key].Stage__c+'</td>');
+                tabTr.append('<td>'+data[key].NumberofLocations__c+'</td>');
+                tabTr.append('<td></td>');
+                tabTr.append('<td>'+data[key ].Status_Code__c+'</td>');
                 // here you have access to
                 jQuery('#tableJobSites > tbody:last').append(tabTr);
             }
         }
-
+        
         
     }
     
